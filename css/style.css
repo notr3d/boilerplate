@@ -1,0 +1,12 @@
+/*@mobile: ~ "(max-width: 767px)";
+@tablet: ~ "(min-width: 768px)";
+@desktop: ~ "(min-width: 1080)";*/
+/*@blue:#29c5e6;*/
+/*@import "header.less";*/
+/*@font-face {
+  font-family: Oswald;
+  src: url("font/Oswald/Oswald-Light.ttf");
+}*/
+body {
+  margin: 0;
+}
