@@ -3,6 +3,7 @@
 module.exports = function (grunt) {
     // load all grunt tasks
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-watch');
     
     grunt.initConfig({
@@ -20,6 +21,21 @@ module.exports = function (grunt) {
                 }
             },
         },
+      
+        postcss: {
+            options: {
+                map: false,
+                processors: [
+                    require('autoprefixer')({
+                        browsers: ['last 2 versions']
+                    })
+                ]
+            },
+            dist: {
+                src: 'css/*.css'
+            }
+        },
+      
         watch: {
             // if any .less file changes in directory "public/css/" run the "less"-task.
             files: "less/*.less",
@@ -28,5 +44,7 @@ module.exports = function (grunt) {
         // "less"-task configuration
     });
      // the default task (running "grunt" in console) is "watch"
+     grunt.registerTask('default', ['less:less']);
+     grunt.registerTask('default', ['postcss:css']);
      grunt.registerTask('default', ['watch']);
 };
